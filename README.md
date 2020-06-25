@@ -2,10 +2,14 @@
 
 **[DISCLAIMER] The purpose of this bot is not to bypass Mediapart subscription. [Please support their work](https://www.mediapart.fr/abo/abonnement/normal).**
   
-[![Code Quality](https://github.com/r0perice/mediapart-discord-bot/workflows/Code%20Quality/badge.svg)](https://github.com/r0perice/mediapart-discord-bot/actions?query=workflow%3A%22Code+Quality%22)
-[![Build Docker Image](https://github.com/r0perice/mediapart-discord-bot/workflows/Build%20Docker%20Image/badge.svg)](https://github.com/r0perice/mediapart-discord-bot/actions?query=workflow%3A%22Build+Docker+Image%22)
+
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/r0perice/mediapart-discord-bot/graphs/commit-activity)
 [![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](LICENSE)  
+  
+[![Code Quality](https://github.com/r0perice/mediapart-discord-bot/workflows/Code%20Quality/badge.svg)](https://github.com/r0perice/mediapart-discord-bot/actions?query=workflow%3A%22Code+Quality%22)
+[![Build Docker Image](https://github.com/r0perice/mediapart-discord-bot/workflows/Build%20Docker%20Image/badge.svg)](https://github.com/r0perice/mediapart-discord-bot/actions?query=workflow%3A%22Build+Docker+Image%22)
+![Build Docker Image and Push to Registry](https://github.com/r0perice/mediapart-discord-bot/workflows/Build%20Docker%20Image%20and%20Push%20to%20Registry/badge.svg)(https://github.com/r0perice/mediapart-discord-bot/actions?query=workflow%3A%22Build+Docker+Image+and+Push+to+Registry%22
+)
 
 ## <a name="summary"></a> Summary
 1. [Main functionalities](#main-functionalities) 
