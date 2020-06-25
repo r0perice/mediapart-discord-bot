@@ -41,7 +41,7 @@ Most of the time it will be the latest version available [here](https://github.c
 * `MEDIAPART_PWD`: your Mediapart password
 * `DISCORD_BOT_TOKEN`: if don't have one, see [how to retrieve it](https://discordpy.readthedocs.io/en/latest/discord.html)
 * `CHANNEL_ID`: the id of the discord channel you want the Mediapart articles to appear (see [how to retrieve this ID](docs/get_discord_channel_id.md))
-* `version`: the version of the bot you want to deploy (usually [latest version](https://github.com/r0perice/mediapart-discord-bot/packages/269328))
+* `version`: the version of the bot you want to deploy (usually [latest version](https://github.com/r0perice/mediapart-discord-bot/packages/286811))
 * (optional) `BOT_FETCH_TIME_HOURS`: the articles fetch time in hours, default is 1 hour.
 * (optional) `db-data:/tmp/mediapart_bot`: on the left it is the name of the volume inside the container, on the right the folder on the host
 
