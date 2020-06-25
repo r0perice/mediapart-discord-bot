@@ -2,6 +2,7 @@
 
 **[DISCLAIMER] The purpose of this bot is not to bypass Mediapart subscription. [Please support their work](https://www.mediapart.fr/abo/abonnement/normal).**
 
+[![Build Docker Image](https://github.com/r0perice/mediapart-discord-bot/workflows/Build%20Docker%20Image/badge.svg)](https://github.com/r0perice/mediapart-discord-bot/actions?query=workflow%3A%22Build+Docker+Image%22)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/r0perice/mediapart-discord-bot/graphs/commit-activity)
 [![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](LICENSE)  
 
