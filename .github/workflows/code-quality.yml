@@ -2,8 +2,8 @@ name: Code Quality
 
 on:
   push:
-    paths:
-      - "**.py"
+    branches:
+      - develop
 
 jobs:
   lint:
