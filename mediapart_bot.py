@@ -157,7 +157,7 @@ def get_mediapart_parser():
     mediapart_user = os.environ['MEDIAPART_USER']
     mediapart_password = os.environ['MEDIAPART_PWD']
 
-    return mediapart_parser.MediapartParser(mediapart_user,mediapart_password)
+    return mediapart_parser.MediapartParser(mediapart_user, mediapart_password)
 
 
 def resolve_article_file_name(article_id):
