@@ -48,12 +48,16 @@ async def on_message(message):
     # get bot logs
     if message.content == "!logs":
         logging.debug("Received !logs command.")
-        await message.channel.send(content="See logs in attachement.", file=discord.File(logs_file, filename="logs.txt"))
+        await message.channel.send(
+            content="See logs in attachement.",
+            file=discord.File(logs_file, filename="logs.txt"))
 
     # force fetching last articles
     if message.content == "!fetch-articles":
         logging.debug("Received !fetch-articles command.")
-        await message.channel.send("Fetching last articles in the channel " + str(discord_client.get_channel(mediapart_channel_id)))
+        await message.channel.send(
+            "Fetching last articles in the channel "
+            + str(discord_client.get_channel(mediapart_channel_id)))
         await get_last_articles()
 
 
@@ -98,11 +102,20 @@ async def get_last_articles():
                 article_title = all_article_titles[article_number]
                 article_category = all_articles_categories[article_number]
                 article_file_name = resolve_article_file_name(article_id)
-                final_file_path = articles_tmp_folder + "/" + article_file_name + ".pdf"
+                final_file_path = articles_tmp_folder + "/"
+                + article_file_name + ".pdf"
 
                 mediapart_parser.url_to_pdf(article_id, final_file_path)
 
-                await mediapart_channel.send(content="[" + article_category + "] " + article_title, file=discord.File(final_file_path, filename=article_title + ".pdf"))
+                await mediapart_channel.send(
+                    # category
+                    content="[" + article_category + "] "
+                    # article title
+                    + article_title,
+                    # attachement
+                    file=discord.File(
+                        final_file_path,
+                        filename=article_title + ".pdf"))
 
                 mediapart_database.insert({"articleId": article_id})
 
@@ -114,7 +127,7 @@ async def get_last_articles():
 
 
 def is_message_from_mediapart_channel(message):
-    if str(message.channel.id)==str(mediapart_channel_id):
+    if str(message.channel.id) == str(mediapart_channel_id):
         return True
     else:
         return False
@@ -188,10 +201,15 @@ create_folder(articles_tmp_folder)
 clean_temp_folder()
 
 # Configure database
-mediapart_database = TinyDB(tempfile.gettempdir() + "/mediapart_bot/mediapart_database.json")
+mediapart_database = TinyDB(tempfile.gettempdir()
+                            + "/mediapart_bot/mediapart_database.json")
 
 # Configure logger
-logging.basicConfig(filename=logs_file, filemode='w', level=logging.DEBUG, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+logging.basicConfig(
+    filename=logs_file,
+    filemode='w',
+    level=logging.DEBUG,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
 # run the bot
 discord_client.run(discord_token)
