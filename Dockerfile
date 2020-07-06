@@ -6,7 +6,7 @@ ENV BOT_TOKEN ""
 ENV CHANNEL_ID ""
 ENV BOT_FETCH_TIME_HOURS 1
 
-RUN pip3 install -Iv mediapart_bot_core==1.0.0-beta.1 \
+RUN pip3 install -Iv mediapart-parser==1.0.4 \
     &&  pip3 install discord configparser tinydb feedparser requests beautifulsoup4
 
 ADD mediapart_bot.py .

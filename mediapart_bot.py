@@ -3,7 +3,7 @@ import logging
 import os
 import shutil
 import tempfile
-from mediapart_bot_core import mediapart_parser
+from mediapart_parser import MediapartParser
 from discord.ext import tasks
 from tinydb import TinyDB
 from tinydb import Query
@@ -71,8 +71,8 @@ async def get_last_articles():
     mediapart_channel = discord_client.get_channel(mediapart_channel_id)
 
     try:
-        mediapart_parser = get_mediapart_parser()
-        all_article_links = mediapart_parser.get_last_full_articles_links()
+        parser = get_mediapart_parser()
+        all_article_links = parser.get_last_french_articles_links()
 
         # if no new articles, exit method
         new_articles_number = resolve_new_articles_numbers(all_article_links)
@@ -82,8 +82,8 @@ async def get_last_articles():
 
         logging.debug("Fetching %s new articles", str(new_articles_number))
 
-        all_article_titles = mediapart_parser.get_last_articles_titles()
-        all_articles_categories = mediapart_parser.get_last_categories()
+        all_article_titles = parser.get_last_articles_titles()
+        all_articles_categories = parser.get_last_articles_categories()
 
         User = Query()
 
@@ -91,28 +91,27 @@ async def get_last_articles():
 
             # resolve article id
             article_link = all_article_links[article_number]
-            article_id = mediapart_parser.get_article_id(article_link)
+            article_id = parser.get_article_id(article_link)
 
             # check if article id is found in the database
             result = mediapart_database.search(User.articleId == article_id)
 
             # if the article id is not already in the database
             if not result:
-
                 article_title = all_article_titles[article_number]
                 article_category = all_articles_categories[article_number]
                 article_file_name = resolve_article_file_name(article_id)
-                final_file_path = articles_tmp_folder + "/"
-                + article_file_name + ".pdf"
+                final_file_path = articles_tmp_folder + "/" \
+                                  + article_file_name + ".pdf"
 
-                mediapart_parser.url_to_pdf(article_id, final_file_path)
+                parser.download_article(article_id, final_file_path)
 
                 await mediapart_channel.send(
                     # category
                     content="[" + article_category + "] "
-                    # article title
-                    + article_title,
-                    # attachement
+                            # article title
+                            + article_title,
+                    # attachment
                     file=discord.File(
                         final_file_path,
                         filename=article_title + ".pdf"))
@@ -170,7 +169,7 @@ def get_mediapart_parser():
     mediapart_user = os.environ['MEDIAPART_USER']
     mediapart_password = os.environ['MEDIAPART_PWD']
 
-    return mediapart_parser.MediapartParser(mediapart_user, mediapart_password)
+    return MediapartParser(mediapart_user, mediapart_password)
 
 
 def resolve_article_file_name(article_id):
