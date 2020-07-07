@@ -35,7 +35,7 @@ The installation procedure is given for Linux system (like [Ubuntu](https://ubun
 
 In the following command you need to replace the field `version` with the version you want to deploy.  
 Most of the time it will be the latest version available [here](https://github.com/r0perice/mediapart-discord-bot/packages/269328).
-> `docker pull docker.pkg.github.com/r0perice/mediapart-discord-bot/mediapart-discord_bot:version`
+> `docker pull docker.pkg.github.com/r0perice/mediapart-discord-bot/mediapart-discord-bot:version`
 
 ### Run the image
 
