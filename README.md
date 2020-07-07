@@ -39,7 +39,7 @@ Most of the time it will be the latest version available [here](https://github.c
 
 ### Run the image
 
-> `docker run -e MEDIAPART_USER="user_name" -e MEDIAPART_PWD="user_pwd" -e DISCORD_BOT_TOKEN="discord_token" -e CHANNEL_ID="channel_id" -v db-data:/tmp/mediapart_bot -it -d mediapart_discord_bot:version`
+> `docker run -e MEDIAPART_USER="user_name" -e MEDIAPART_PWD="user_pwd" -e DISCORD_BOT_TOKEN="discord_token" -e CHANNEL_ID="channel_id" -v mediapart-discord-bot-data:/tmp/mediapart_bot -it -d mediapart-discord-bot:version`
 
 * `MEDIAPART_USER`: your Mediapart user name
 * `MEDIAPART_PWD`: your Mediapart password
