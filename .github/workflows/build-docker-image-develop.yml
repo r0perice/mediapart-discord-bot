@@ -1,5 +1,5 @@
 ---
-name: 'build docker image and push to registry'
+name: 'build docker image on develop'
 
 on:
   push:
